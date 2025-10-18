@@ -11,3 +11,6 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/register/verify', [AuthController::class, 'showRegisterVerify'])->name('register.verify');
 Route::post('/register/verify', [AuthController::class, 'verifyRegisterOtp'])->name('register.verify.submit');
+
+Route::get('/bookings', [AdminController::class, 'bookings'])->name('bookings');
+Route::put('/bookings/{booking}', [AdminController::class, 'updateBooking'])->name('bookings.update');
