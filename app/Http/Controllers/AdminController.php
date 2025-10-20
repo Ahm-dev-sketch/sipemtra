@@ -49,4 +49,55 @@ class AdminController extends Controller
 
         return view('admin.pelanggan', compact('customers', 'search'));
     }
+
+    // Form edit pelanggan
+    public function editPelanggan(User $customer)
+    {
+        return view('admin.pelanggan.edit', compact('customer'));
+    }
+
+    // Update pelanggan
+    public function updatePelanggan(Request $request, User $customer)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $customer->id,
+            'role' => 'required|in:user,admin'
+        ]);
+
+        $customer->update($request->only(['name', 'email', 'role']));
+
+        return redirect()->route('admin.pelanggan')->with('success', 'Data pelanggan berhasil diperbarui');
+    }
+
+    // Form tambah pelanggan
+    public function createPelanggan()
+    {
+        return view('admin.pelanggan.create');
+    }
+
+    // Simpan pelanggan baru
+    public function storePelanggan(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6',
+            'role' => 'required|in:user,admin'
+        ]);
+
+        $userData = $request->only(['name', 'email', 'role']);
+        $userData['password'] = bcrypt($request->password);
+
+        User::create($userData);
+
+        return redirect()->route('admin.pelanggan')->with('success', 'Berhasil Menambahkan');
+    }
+
+    // Hapus pelanggan
+    public function destroyPelanggan(User $customer)
+    {
+        $customer->delete();
+        return back()->with('success', 'Pelanggan berhasil dihapus');
+    }
 }
