@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div class="flex justify-center items-center min-h-screen bg-gray-100">
     <div class="bg-white shadow-lg rounded-lg flex flex-col md:flex-row overflow-hidden w-full max-w-4xl" data-aos="zoom-in">
 
@@ -51,3 +54,4 @@
         </div>
     </div>
 </div>
+@endsection
