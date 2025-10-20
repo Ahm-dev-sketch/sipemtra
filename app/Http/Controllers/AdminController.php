@@ -34,4 +34,19 @@ class AdminController extends Controller
 
         return back()->with('success', 'Status booking diperbarui!');
     }
+
+
+    // Kelola Pelanggan
+    public function pelanggan(Request $request)
+    {
+        $search = $request->input('search');
+
+        $customers = User::when($search, function($query, $search) {
+            return $query->where('name', 'like', "%{$search}%")
+                         ->orWhere('email', 'like', "%{$search}%")
+                         ->orWhere('role', 'like', "%{$search}%");
+        })->paginate(10);
+
+        return view('admin.pelanggan', compact('customers', 'search'));
+    }
 }
