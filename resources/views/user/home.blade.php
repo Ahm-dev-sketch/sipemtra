@@ -29,7 +29,7 @@
 
         {{-- Right side: Illustration --}}
         <div class="md:w-1/2 mt-10 md:mt-0 flex flex-col items-center" data-aos="fade-left">
-            <img src="{{ asset('home.jpg') }}" alt="Ilustrasi pemesanan tiket"
+            <img src="{{ asset('images/home.jpg') }}" alt="Ilustrasi pemesanan tiket"
                 class="w-full max-w-lg rounded-2xl shadow-xl object-contain" />
 
             <div class="mt-6 mb-12 text-center">

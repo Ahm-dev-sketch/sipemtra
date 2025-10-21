@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>PT. PELITA TRANSPORT</title>
-    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if(auth()->check() && auth()->user()->role === 'admin')
+    @if (auth()->check() && auth()->user()->role === 'admin')
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @endif
 </head>
@@ -25,7 +25,7 @@
         <div data-error-message="{{ session('error') }}" style="display: none;"></div>
     @endif
 
-    @if(auth()->check() && auth()->user()->role === 'admin')
+    @if (auth()->check() && auth()->user()->role === 'admin')
         <!-- Admin Layout -->
         <div class="flex">
             <!-- Hamburger Button -->
@@ -41,7 +41,8 @@
                 class="w-64 h-screen bg-blue-900 text-white flex flex-col transform -translate-x-full
                        md:translate-x-0 transition-transform duration-300 md:static fixed z-50">
                 <div class="p-4 text-xl font-bold border-b border-blue-700 flex items-center gap-2">
-                    <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10 w-10 rounded-full object-cover">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo"
+                        class="h-10 w-10 rounded-full object-cover">
                     PT. PELITA TRANSPORT
                 </div>
 
@@ -112,7 +113,7 @@
 
                 {{-- Logo --}}
                 <a href="{{ route('home') }}" class="flex items-center space-x-2 text-lg md:text-xl font-bold">
-                    <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10 w-10 rounded-full object-cover">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10 w-10 rounded-full object-cover">
                     <span>PT. PELITA TRANSPORT</span>
                 </a>
 
@@ -120,7 +121,8 @@
                 <button id="menu-toggle" class="md:hidden focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
 
@@ -166,7 +168,8 @@
                             {{-- Dropdown --}}
                             <div id="user-dropdown"
                                 class="hidden absolute right-0 top-10 mt-1 w-40 bg-white text-gray-700 rounded shadow-lg py-2 z-50 transition-opacity duration-200 opacity-0">
-                                <button type="button" id="logout-btn" class="w-full text-left px-4 py-2 hover:bg-gray-100">
+                                <button type="button" id="logout-btn"
+                                    class="w-full text-left px-4 py-2 hover:bg-gray-100">
                                     Logout
                                 </button>
                             </div>
@@ -184,13 +187,15 @@
             <div id="menu" class="hidden flex-col bg-blue-800 md:hidden px-6 py-4 space-y-2">
                 <a href="{{ route('home') }}" class="block hover:text-blue-300">Home</a>
                 <a href="{{ route('jadwal') }}" class="block hover:text-blue-300">Jadwal Keberangkatan</a>
-                <a href="{{ auth()->check() ? route('pesan') : route('login') }}" class="block hover:text-blue-300">Pesan
+                <a href="{{ auth()->check() ? route('pesan') : route('login') }}"
+                    class="block hover:text-blue-300">Pesan
                     Tiket</a>
                 <a href="{{ auth()->check() ? route('riwayat') : route('login') }}"
                     class="block hover:text-blue-300">Riwayat Transaksi</a>
 
                 @guest
-                    <a href="{{ route('login') }}" class="block px-4 py-2 bg-blue-500 rounded hover:bg-blue-600 transition">
+                    <a href="{{ route('login') }}"
+                        class="block px-4 py-2 bg-blue-500 rounded hover:bg-blue-600 transition">
                         Login
                     </a>
                 @else
