@@ -70,7 +70,7 @@
         {{-- Right side: Illustration --}}
         <div class="md:w-1/2 bg-green-50 flex justify-center items-center p-6" data-aos="fade-left">
             <div class="text-center">
-                <img src="{{ asset('register.jpg') }}"
+                <img src="{{ asset('images/register.jpg') }}"
                      alt="Travel" class="max-w-sm mx-auto">
                 <h3 class="mt-4 font-bold text-lg">PT. Pelita Transport </h3>
                 <p class="text-gray-500">Travel Terbaik Untuk Anda </p>
